@@ -35,6 +35,8 @@
 2. Clear `src/App.css` and `src/index.css`
 3. Delete `public/vite.svg` and `src/assets/react.svg`
 4. Remove imports from `App.jsx`:
-    ```import reactLogo from './assets/react.svg'
-       import viteLogo from '/vite.svg'```
+    ```
+    import reactLogo from './assets/react.svg' 
+    import viteLogo from '/vite.svg'
+    ```
 5. Clear & modify main tag in `App.jsx` 
