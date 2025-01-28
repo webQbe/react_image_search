@@ -27,7 +27,7 @@
     - Run `npm install`
 4. Run sever: `npm run dev`
 5. Install Material-UI and Axios:
-    - Run `npm install @mui/material @emotion/react @emotion/styled axios@latest`
+    - Run `npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/lab axios@latest`
 
 
 ### Modify Files

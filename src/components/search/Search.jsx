@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextField from '@mui/material/TextField';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
+import ImageResults from '../image-results/ImageResults';
 
 
 class Search extends Component {
@@ -57,8 +58,13 @@ class Search extends Component {
                     <MenuItem value={30}>30</MenuItem>
                     <MenuItem value={50}>50</MenuItem>
                 </Select>
+                <br />
+                {this.state.images.length > 0 ? // If there are results
+                   // Pass results to ImageResults
+                  (<ImageResults images={this.state.images} />) :
+                  null}
       </div>
-    )
+    );
   }
 }
 
