@@ -1,23 +1,35 @@
 import React, { Component } from 'react'
 import TextField from '@mui/material/TextField';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import axios from 'axios';
 
 
 class Search extends Component {
     state = {
         searchText: '', // blank by default, updated by onTextChange()
-        amount: 15, 
+        amount: 15, // Default result amount
         apiUrl: 'https://pixabay.com/api',
         apiKey: '',
-        images: []
+        images: [] // Array to store search results
     };
 
     // Update searchText of the state
     onTextChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({[e.target.name]: e.target.value},
+            // Make API request
+            () => {
+                axios.get(`${this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`)
+                        // Select hits from response & add to images array
+                        .then(res => this.setState({images: res.data.hits})) 
+                        .catch(err => console.log(err)); // Handle errors
+            });
     };
 
   render() {
+
+    // Console log updated images array
+    console.log(this.state.images);
+
     return (
       <div>
         <TextField 
