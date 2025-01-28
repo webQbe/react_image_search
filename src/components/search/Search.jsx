@@ -25,7 +25,12 @@ class Search extends Component {
             });
     };
 
-  render() {
+    // Update amount of the state
+    onAmountChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }; 
+
+  render() { 
 
     // Console log updated images array
     console.log(this.state.images);
