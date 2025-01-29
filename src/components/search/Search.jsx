@@ -7,11 +7,11 @@ import ImageResults from '../image-results/ImageResults';
 
 class Search extends Component {
     state = {
-        searchText: '', // blank by default, updated by onTextChange()
+        searchText: '', /* blank by default, updated by onTextChange() */
         amount: 15, // Default result amount
         apiUrl: 'https://pixabay.com/api',
         apiKey: '',
-        images: [] // Array to store search results
+        images: []  /* Array to store search results */
     };
 
     // Update searchText of the state
@@ -59,7 +59,7 @@ class Search extends Component {
                     <MenuItem value={50}>50</MenuItem>
                 </Select>
                 <br />
-                {this.state.images.length > 0 ? // If there are results
+                {this.state.searchText.length > 0 ? // If Search Text Available
                    // Pass results to ImageResults
                   (<ImageResults images={this.state.images} />) :
                   null}
