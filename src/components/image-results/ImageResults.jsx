@@ -10,6 +10,22 @@ import Button from '@mui/material/Button';
 
 
 class ImageResults extends Component {
+
+  state = {
+    open: false, // Dialog is not open by default
+    currentImg: '' // Image to load on dialog
+  }
+
+  // Handle Dialog Opening Event
+  handleOpen = img => {
+    this.setState({ open: true, currentImg: img });
+  }
+
+  // Handle Dialog Closing Event
+  handleClose = () => {
+      this.setState({ open: false });
+  }
+
   render() {
     let imageListContent; // Init imageListContent
     const { images } = this.props; // Pull images from props
@@ -25,7 +41,7 @@ class ImageResults extends Component {
                         <ImageListItemBar 
                         title={img.tags} 
                         subtitle={<span>by <strong>{img.user}</strong></span>} 
-                        actionIcon={<IconButton sx={{ color: 'white' }} 
+                        actionIcon={<IconButton onClick={() => this.handleOpen(img.largeImageURL)} sx={{ color: 'white' }} 
                         aria-label={`zoom in on ${img.tags}`}>
                                 <ZoomInIcon />
                         </IconButton> }/>
@@ -46,6 +62,16 @@ class ImageResults extends Component {
       // Output imageListContent
       <div>
         {imageListContent}
+
+        <Dialog 
+          open={this.state.open} // Open / Closed state
+          onClose={this.handleClose} // Handle Close Event
+          >
+              <img src={this.state.currentImg} alt="" style={{ width: '100%'}}
+              // Show current image
+              />
+              <Button  onClick={this.handleClose} style={{ width: '5%', margin: '0 0 0 87%'}}>Close</Button>
+        </Dialog>
       </div>
     )
   }
