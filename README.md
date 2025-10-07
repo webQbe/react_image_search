@@ -1,5 +1,7 @@
 # React Image Search App
+This repo is an adaptation of [React & Material UI Project Using The PixaBay API](https://www.youtube.com/watch?v=dzOrUmK4Qyw) by Brad Traversy. 
 
+I followed the tutorial to learn followings:
 - Using Pixabay API to search images
 - Using Material-UI with React components
 - UI contains 
@@ -8,6 +10,10 @@
 - Each image result has Zoom icon, image tags, username
 - Clicking on Zoom icon will open a pop-up dialog with image
 
+
+## What I changed
+- Used **MUI v5**
+- Created a new version of `ImageResults.jsx` component using `@mui/lab/Masonry`.
 
 ## Getting Started
 
@@ -40,3 +46,11 @@
     import viteLogo from '/vite.svg'
     ```
 5. Clear & modify main tag in `App.jsx` 
+
+
+## Credits
+Original tutorial: [React & Material UI Project Using The PixaBay API](https://www.youtube.com/watch?v=dzOrUmK4Qyw) — Brad Traversy.
+This repo includes my changes (noted above).
+
+## License
+MIT License
